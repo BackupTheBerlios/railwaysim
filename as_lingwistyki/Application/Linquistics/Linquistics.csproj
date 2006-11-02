@@ -36,21 +36,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alphabet.cs" />
-    <Compile Include="Drawer.cs" />
+    <Compile Include="FiniteStateAutomats\Alphabet.cs" />
+    <Compile Include="FiniteStateAutomats\Drawer.cs" />
     <Compile Include="AutomatsDesign.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AutomatsDesign.Designer.cs">
       <DependentUpon>AutomatsDesign.cs</DependentUpon>
     </Compile>
-    <Compile Include="Edge.cs" />
-    <Compile Include="FactoryNodes.cs" />
-    <Compile Include="FinitestateAutomation.cs" />
-    <Compile Include="GraphAutomats.cs" />
-    <Compile Include="Node.cs" />
-    <Compile Include="OperationFunction.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="FiniteStateAutomats\Edge.cs" />
+    <Compile Include="FiniteStateAutomats\FactoryNodes.cs" />
+    <Compile Include="FiniteStateAutomats\FinitestateAutomation.cs" />
+    <Compile Include="FiniteStateAutomats\GraphAutomats.cs" />
+    <Compile Include="FiniteStateAutomats\Node.cs" />
+    <Compile Include="FiniteStateAutomats\OperationFunction.cs" />
+    <Compile Include="FiniteStateAutomats\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AutomatsDesign.resx">
       <SubType>Designer</SubType>
@@ -79,9 +79,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="State.cs" />
-    <Compile Include="StateCharPair.cs" />
-    <Compile Include="StateFiniteAutomata.cs" />
+    <Compile Include="FiniteStateAutomats\State.cs" />
+    <Compile Include="FiniteStateAutomats\StateCharPair.cs" />
+    <Compile Include="FiniteStateAutomats\StateFiniteAutomata.cs" />
     <Compile Include="ToolboxAutomats.cs">
       <SubType>Form</SubType>
     </Compile>
