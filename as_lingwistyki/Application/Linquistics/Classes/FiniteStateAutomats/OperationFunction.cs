@@ -94,5 +94,14 @@ namespace Linquistics
                 }
             }
         }
+        public StateFiniteAutomata GetNextState(StateFiniteAutomata currentS,char c)
+        {
+            if (functionData.ContainsKey(new StateCharPair(currentS, c)))
+            {
+                StateFiniteAutomata res = functionData[new StateCharPair(currentS, c)][0];
+                return res;
+            }
+            return null;
+        }
     }
 }

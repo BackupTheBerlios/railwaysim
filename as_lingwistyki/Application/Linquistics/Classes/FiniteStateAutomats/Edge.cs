@@ -15,11 +15,15 @@ namespace Linquistics
         static private int ARROW_RADIUS = 10;
         static private Font drawingFont;
         static private int FONT_HEIGHT = 12;
+        static private Pen bevelPen;
+        static private Color bevelColor = Color.Gold;
         private int beginx, beginy, a1x, a1y, a2x, a2y;
         private PointF textPosition;
         static private Pen arrowPen = new Pen(Brushes.DarkBlue, 2);
         private string toDraw = "";
         private SizeF textSize;
+        
+        public int Bevel = 0;
 
         public Edge(Node bNode, Node eNode,Char c)
         {
@@ -120,16 +124,24 @@ namespace Linquistics
         }
         public void DrawEdge(PaintEventArgs e)
         {
-            if(beginNode!=endNode)
+            if (beginNode != endNode)
+            {
+                if (Bevel != 0)
+                {
+                    bevelColor = Color.FromArgb(Bevel * 50, bevelColor);
+                    bevelPen = new Pen(bevelColor,2*Bevel-1);
+                    e.Graphics.DrawLine(bevelPen, beginNode.ScreenPosition, endNode.ScreenPosition);
+                }
                 e.Graphics.DrawLine(arrowPen, beginNode.ScreenPosition, endNode.ScreenPosition);
+            }
             else
             {
-                
-                Point control1 = new Point(beginNode.ScreenPosition.X+2*beginNode.Radius,beginNode.ScreenPosition.Y-3*beginNode.Radius);
-                Point control2 = new Point(beginNode.ScreenPosition.X, beginNode.ScreenPosition.Y - 3 * beginNode.Radius);
-                Point end=new Point(beginx,beginy);
 
-                e.Graphics.DrawBezier(arrowPen,beginNode.ScreenPosition, control1, control2, end);
+                Point control1 = new Point(beginNode.ScreenPosition.X + 2 * beginNode.Radius, beginNode.ScreenPosition.Y - 3 * beginNode.Radius);
+                Point control2 = new Point(beginNode.ScreenPosition.X, beginNode.ScreenPosition.Y - 3 * beginNode.Radius);
+                Point end = new Point(beginx, beginy);
+
+                e.Graphics.DrawBezier(arrowPen, beginNode.ScreenPosition, control1, control2, end);
             }
 
 

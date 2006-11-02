@@ -6,7 +6,7 @@ namespace Linquistics
 {
     public class StateFiniteAutomata : State, IComparable
     {
-        private Node node;
+        private Node node=null;
         public StateFiniteAutomata(string n)
             : base(n)
         {
@@ -14,7 +14,7 @@ namespace Linquistics
         public StateFiniteAutomata(Node nod)
             : base(nod.Name)
         {
-
+            node = nod;
         }
         public new int CompareTo(object obj)
         {
@@ -27,7 +27,12 @@ namespace Linquistics
 
             throw new ArgumentException("object is not a StateFiniteAutomata");
         }
+        public Node AssociatedNode
+        {
+            get { return node; }
+        }
 
     }
+   
     
 }

@@ -37,6 +37,11 @@ namespace Linquistics
 
      
      /// Association End operationFunction
+     private StateFiniteAutomata currentState = null;
+     public StateFiniteAutomata CurrentState
+     {
+         get { return currentState; }
+     }
      public OperationFunction OpFunction
      {
          get
@@ -57,6 +62,22 @@ namespace Linquistics
        public void AddState(StateFiniteAutomata s)
        {
            states.Add(s);
+       }
+       public void ActivateAutomate()
+       {
+           currentState = startState;
+       }
+       public StateFiniteAutomata NextOperation(char c)
+       {
+           StateFiniteAutomata nextSt = operationFunction.GetNextState(currentState,c);
+           currentState = nextSt;
+           return nextSt;
+       }
+       public bool IsInAcceptedState()
+       {
+          if(currentState!=null&&acceptStates.ContainsKey(currentState.Name))
+           return true;
+       return false;
        }
  } 
 }

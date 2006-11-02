@@ -12,6 +12,9 @@ namespace Linquistics
         private List<Edge> edges = new List<Edge>();
         private List<Node> selectedNodes = new List<Node>();
         public bool HasStartNode = false;
+        private Edge animatedEdge = null;
+        static public int FRAMES_NUMBER = 8;
+        private int frameStep = 1;
         public List<Node> Nodes
         {
             get
@@ -118,14 +121,39 @@ namespace Linquistics
         }
         private void addEdge(Node from, Node to,Char c)
         {
+            Edge oldEd=findEdge(from, to);
+            if(oldEd==null)
+                edges.Add(new Edge(from, to,c));
+        }
+        public void SelectEdgeOperation(Node n1, Node n2)
+        {
+            if (animatedEdge != null) animatedEdge.Bevel = 0;
+            animatedEdge = findEdge(n1, n2);
+            if (animatedEdge != null)
+            {
+                animatedEdge.Bevel = 1;
+                frameStep = 1;
+            }
+        }
+        public void SelectedEdgeNextFrame()
+        {
+            if (animatedEdge!=null && animatedEdge.Bevel != 0)
+            {
+                if (animatedEdge.Bevel >= FRAMES_NUMBER / 2 || animatedEdge.Bevel < 0)
+                    frameStep *= -1;
+                animatedEdge.Bevel += frameStep;
+            }
+        }
+        private Edge findEdge(Node from, Node to)
+        {
             for (int i = 0; i < edges.Count; i++)
             {
                 if (edges[i].BeginNode == from && edges[i].EndNode == to)
                 {
-                    return;
+                    return edges[i];
                 }
             }
-            edges.Add(new Edge(from, to,c));
+            return null;
         }
         public void DrawTemporaryLine(Point toXY, PaintEventArgs e)
         {
