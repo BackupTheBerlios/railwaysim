@@ -505,14 +505,10 @@ namespace Linquistics
         private System.Windows.Forms.PictureBox wizardPictureBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox terminalsTextBox;
         private System.Windows.Forms.Button terminalsBtn;
-        private System.Windows.Forms.TextBox nonTerminalsTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox productionsNumTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox startSymbolComboBox;
         private System.Windows.Forms.Button nonTerminalsBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button commitBtn;
@@ -539,5 +535,9 @@ namespace Linquistics
         private System.Windows.Forms.Button startStopBtn;
         private System.Windows.Forms.ToolStripMenuItem doPlikuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem drukarkToolStripMenuItem;
+        public System.Windows.Forms.TextBox terminalsTextBox;
+        public System.Windows.Forms.TextBox productionsNumTextBox;
+        public System.Windows.Forms.ComboBox startSymbolComboBox;
+        public System.Windows.Forms.TextBox nonTerminalsTextBox;
     }
 }

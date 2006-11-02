@@ -14,7 +14,7 @@ namespace Linquistics
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GrammarForm());
+            Application.Run(new AutomatsDesign());
         }
     }
 }

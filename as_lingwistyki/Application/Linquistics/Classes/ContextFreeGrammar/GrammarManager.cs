@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Collections;
+using System.Windows.Forms;
 
 namespace Linquistics
 {
@@ -22,10 +23,44 @@ namespace Linquistics
 
         public void createNewContextFreeGrammarManager()
         {
+            string allTerminals = "";
+            string allNonTerminals = "";
+            string startSymbol = "";
+            int productionsNum = 0;
+
             //get data from form
+            try
+            {
+                allTerminals = form.terminalsTextBox.Text;
+                allNonTerminals = form.nonTerminalsTextBox.Text;
+                startSymbol = form.startSymbolComboBox.SelectedText;
+                try
+                {
+                    productionsNum = Int32.Parse(form.productionsNumTextBox.Text);
+                }
+                catch (FormatException formEx)
+                {
+                    MessageBox.Show("Z³y format danych podanych jako liczba produkcji! " + formEx.Message);
+                    return;
+                }
+            }
+            catch (ArgumentNullException nullEx)
+            {
+                MessageBox.Show("Nie podane wszystkie wymagane argumenty! "+nullEx.Message);
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("B³¹d przy zczytywaniu danych z panela definicji gramatyki. Typ wyj¹ztku: "+ ex.GetType());
+                return;
+            }
 
             //validate data
+
+
+            //create grammar
             grammar = new ContextFreeGrammar();
+
             //show information about result of creating
         }
 
