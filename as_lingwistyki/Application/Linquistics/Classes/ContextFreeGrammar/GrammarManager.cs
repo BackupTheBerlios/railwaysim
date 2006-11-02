@@ -23,6 +23,7 @@ namespace Linquistics
         public void createNewContextFreeGrammarManager()
         {
             //get data from form
+
             //validate data
             grammar = new ContextFreeGrammar();
             //show information about result of creating
@@ -102,6 +103,11 @@ namespace Linquistics
             isMembership = grammar.checkMembership(parWord);
 
             //show result on form
+        }
+
+
+        public void simulateCheckingMembershipManager()
+        {
         }
 
     }

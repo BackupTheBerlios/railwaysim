@@ -28,6 +28,7 @@ namespace Linquistics
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutomatsDesign));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -59,6 +60,8 @@ namespace Linquistics
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -154,6 +157,7 @@ namespace Linquistics
             this.toolStrip1.Size = new System.Drawing.Size(692, 25);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolStripButton1
             // 
@@ -338,6 +342,7 @@ namespace Linquistics
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(4, 16);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(66, 17);
@@ -348,12 +353,13 @@ namespace Linquistics
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(94, 63);
+            this.button2.Location = new System.Drawing.Point(106, 63);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(61, 57);
             this.button2.TabIndex = 1;
             this.button2.Text = "sprawdü";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox2
             // 
@@ -362,6 +368,16 @@ namespace Linquistics
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 0;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 125;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // AutomatsDesign
             // 
@@ -430,6 +446,8 @@ namespace Linquistics
         private System.Windows.Forms.ToolStripMenuItem opcjeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuÒNiedeterminizmToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minimalizujToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 

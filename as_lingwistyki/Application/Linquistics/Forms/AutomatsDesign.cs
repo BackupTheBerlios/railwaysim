@@ -28,7 +28,7 @@ namespace Linquistics
 
         private TextBox temporaryTBox = null;
         private TextEditResult temporaryTextEditResult = null;
-
+        
         //for selecting states
         private int selectState = 0; //0 - for none selected; 1 - for state selected; 4 - for textbox editting
         private Point lastMousePosiotion = new Point();
@@ -36,6 +36,11 @@ namespace Linquistics
         private int currentStateNumber = 0;
         private string default_state_name = "q";
         private FinitestateAutomation mainAutomate;
+        private char currentChar='a';
+        private StringBuilder currentWord = new StringBuilder();
+        private bool isAccepted = false;
+
+        private bool nextStep = false;
         public AutomatsDesign()
         {
             InitializeComponent();
@@ -69,7 +74,8 @@ namespace Linquistics
 
            
             tbox.Show(this);
-           
+            timer1.Stop();
+            timer2.Stop();
         }
 
         private void Form1_Validating(object sender, CancelEventArgs e)
@@ -310,6 +316,73 @@ namespace Linquistics
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             editMouseAction(e);
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (mainAutomate != null)
+            {
+                currentWord = new StringBuilder(textBox2.Text.Trim());
+                if (currentWord.Length>0&&radioButton1.Checked)
+                    this.stepSimulation();
+            }
+        }
+        private void stepSimulation()
+        {
+            mainAutomate.ActivateAutomate();
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(currentWord.Length==0&&mainAutomate.IsInAcceptedState())
+            {
+                timer1.Stop();
+                timer2.Stop();
+                this.textBox2.Text = "nalezy!!!";
+                return;
+            }  
+            else if (currentWord.Length == 0)
+            {
+                //the result is: "no!"
+                timer2.Stop();
+                timer1.Stop();
+                this.textBox2.Text = "nie nalezy!!!";
+                return;
+            }  
+           
+            currentChar = currentWord[0];
+            currentWord.Remove(0, 1);
+            nextStep = true;
+            
+            StateFiniteAutomata s1 = mainAutomate.CurrentState;
+            StateFiniteAutomata s2= mainAutomate.NextOperation(currentChar);
+                      
+            if (s2 == null)
+            {
+                //the result is: "no!"
+                timer2.Stop();
+                timer1.Stop();
+                this.textBox2.Text = "nie nalezy!!!";
+            }            
+            else
+            {
+                graph.SelectEdgeOperation(s1.AssociatedNode, s2.AssociatedNode);
+                timer2.Start();
+            }
+            textBox2.Text = currentWord.ToString();
+            textBox2.Refresh();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            graph.SelectedEdgeNextFrame();
+            pictureBox1.Refresh();
         }
         
     }

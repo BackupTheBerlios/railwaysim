@@ -9,6 +9,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Linquistics</RootNamespace>
     <AssemblyName>Linquistics</AssemblyName>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,41 +38,66 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\FiniteStateAutomats\Alphabet.cs" />
-    <Compile Include="Classes\FiniteStateAutomats\Drawer.cs" />
     <Compile Include="Classes\ContextFreeGrammar\ContextFreeGrammar.cs" />
+    <Compile Include="Classes\ContextFreeGrammar\GrammarManager.cs" />
+    <Compile Include="Classes\FiniteStateAutomats\Alphabet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\FiniteStateAutomats\Drawer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\FiniteStateAutomats\Edge.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\FiniteStateAutomats\FactoryNodes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\FiniteStateAutomats\FinitestateAutomation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\FiniteStateAutomats\GraphAutomats.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\FiniteStateAutomats\Node.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\FiniteStateAutomats\OperationFunction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\Program.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\FiniteStateAutomats\State.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\FiniteStateAutomats\StateCharPair.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\FiniteStateAutomats\StateFiniteAutomata.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Forms\AutomatsDesign.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AutomatsDesign.Designer.cs">
       <DependentUpon>AutomatsDesign.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\FiniteStateAutomats\Edge.cs" />
-    <Compile Include="Classes\FiniteStateAutomats\FactoryNodes.cs" />
-    <Compile Include="Classes\FiniteStateAutomats\FinitestateAutomation.cs" />
-    <Compile Include="Classes\FiniteStateAutomats\GraphAutomats.cs" />
-    <Compile Include="Classes\FiniteStateAutomats\Node.cs" />
-    <Compile Include="Classes\FiniteStateAutomats\OperationFunction.cs" />
-    <Compile Include="Classes\FiniteStateAutomats\Program.cs" />
-    <Compile Include="Classes\ContextFreeGrammar\GrammarManager.cs" />
     <Compile Include="Forms\GrammarForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\GrammarForm.Designer.cs">
       <DependentUpon>GrammarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ToolboxAutomats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ToolboxAutomats.Designer.cs">
+      <DependentUpon>ToolboxAutomats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AutomatsDesign.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>AutomatsDesign.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ToolboxAutomats.resx">
-      <DependentUpon>ToolboxAutomats.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -86,15 +113,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Classes\FiniteStateAutomats\State.cs" />
-    <Compile Include="Classes\FiniteStateAutomats\StateCharPair.cs" />
-    <Compile Include="Classes\FiniteStateAutomats\StateFiniteAutomata.cs" />
-    <Compile Include="Forms\ToolboxAutomats.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ToolboxAutomats.Designer.cs">
-      <DependentUpon>ToolboxAutomats.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -119,7 +137,15 @@
     <EmbeddedResource Include="Resources\state_begin.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\gwiazdka.ico" />
+    <EmbeddedResource Include="Forms\AutomatsDesign.resx">
+      <DependentUpon>AutomatsDesign.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ToolboxAutomats.resx">
+      <DependentUpon>ToolboxAutomats.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\gwiazdka.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
