@@ -36,23 +36,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FiniteStateAutomats\Alphabet.cs" />
-    <Compile Include="FiniteStateAutomats\Drawer.cs" />
-    <Compile Include="AutomatsDesign.cs">
+    <Compile Include="Classes\FiniteStateAutomats\Alphabet.cs" />
+    <Compile Include="Classes\FiniteStateAutomats\Drawer.cs" />
+    <Compile Include="Classes\ContextFreeGrammar\ContextFreeGrammar.cs" />
+    <Compile Include="Forms\AutomatsDesign.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutomatsDesign.Designer.cs">
+    <Compile Include="Forms\AutomatsDesign.Designer.cs">
       <DependentUpon>AutomatsDesign.cs</DependentUpon>
     </Compile>
-    <Compile Include="FiniteStateAutomats\Edge.cs" />
-    <Compile Include="FiniteStateAutomats\FactoryNodes.cs" />
-    <Compile Include="FiniteStateAutomats\FinitestateAutomation.cs" />
-    <Compile Include="FiniteStateAutomats\GraphAutomats.cs" />
-    <Compile Include="FiniteStateAutomats\Node.cs" />
-    <Compile Include="FiniteStateAutomats\OperationFunction.cs" />
-    <Compile Include="FiniteStateAutomats\Program.cs" />
+    <Compile Include="Classes\FiniteStateAutomats\Edge.cs" />
+    <Compile Include="Classes\FiniteStateAutomats\FactoryNodes.cs" />
+    <Compile Include="Classes\FiniteStateAutomats\FinitestateAutomation.cs" />
+    <Compile Include="Classes\FiniteStateAutomats\GraphAutomats.cs" />
+    <Compile Include="Classes\FiniteStateAutomats\Node.cs" />
+    <Compile Include="Classes\FiniteStateAutomats\OperationFunction.cs" />
+    <Compile Include="Classes\FiniteStateAutomats\Program.cs" />
+    <Compile Include="Classes\ContextFreeGrammar\GrammarManager.cs" />
+    <Compile Include="Forms\GrammarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GrammarForm.Designer.cs">
+      <DependentUpon>GrammarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AutomatsDesign.resx">
+    <EmbeddedResource Include="Forms\AutomatsDesign.resx">
       <SubType>Designer</SubType>
       <DependentUpon>AutomatsDesign.cs</DependentUpon>
     </EmbeddedResource>
@@ -61,7 +69,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToolboxAutomats.resx">
+    <EmbeddedResource Include="Forms\ToolboxAutomats.resx">
       <DependentUpon>ToolboxAutomats.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -79,13 +87,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="FiniteStateAutomats\State.cs" />
-    <Compile Include="FiniteStateAutomats\StateCharPair.cs" />
-    <Compile Include="FiniteStateAutomats\StateFiniteAutomata.cs" />
-    <Compile Include="ToolboxAutomats.cs">
+    <Compile Include="Classes\FiniteStateAutomats\State.cs" />
+    <Compile Include="Classes\FiniteStateAutomats\StateCharPair.cs" />
+    <Compile Include="Classes\FiniteStateAutomats\StateFiniteAutomata.cs" />
+    <Compile Include="Forms\ToolboxAutomats.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ToolboxAutomats.Designer.cs">
+    <Compile Include="Forms\ToolboxAutomats.Designer.cs">
       <DependentUpon>ToolboxAutomats.cs</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -102,9 +110,16 @@
     <None Include="Resources\ikon3_automat.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\GrammarForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GrammarForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\state.bmp" />
     <EmbeddedResource Include="Resources\state_accepted.bmp" />
     <EmbeddedResource Include="Resources\state_begin.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\gwiazdka.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
