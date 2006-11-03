@@ -88,6 +88,36 @@
     <Compile Include="Forms\GrammarForm.Designer.cs">
       <DependentUpon>GrammarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\StackMachine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StackMachine.designer.cs">
+      <DependentUpon>StackMachine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StackMachineWizards\StateFunction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\StackMachineWizards\StateFunction.designer.cs">
+      <DependentUpon>StateFunction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StackMachineWizards\WizadrKrok1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StackMachineWizards\WizadrKrok1.designer.cs">
+      <DependentUpon>WizadrKrok1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StackMachineWizards\WizardKrok2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StackMachineWizards\WizardKrok2.designer.cs">
+      <DependentUpon>WizardKrok2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StackMachineWizards\WizardKrok3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StackMachineWizards\WizardKrok3.designer.cs">
+      <DependentUpon>WizardKrok3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ToolboxAutomats.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +169,26 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\AutomatsDesign.resx">
       <DependentUpon>AutomatsDesign.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StackMachine.resx">
+      <DependentUpon>StackMachine.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StackMachineWizards\StateFunction.resx">
+      <DependentUpon>StateFunction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StackMachineWizards\WizadrKrok1.resx">
+      <DependentUpon>WizadrKrok1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StackMachineWizards\WizardKrok2.resx">
+      <DependentUpon>WizardKrok2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StackMachineWizards\WizardKrok3.resx">
+      <DependentUpon>WizardKrok3.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ToolboxAutomats.resx">

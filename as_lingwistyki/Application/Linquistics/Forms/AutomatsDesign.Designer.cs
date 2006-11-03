@@ -84,8 +84,6 @@ namespace Linquistics
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(728, 270);
             this.panel1.TabIndex = 2;
-            this.panel1.Validating += new System.ComponentModel.CancelEventHandler(this.panel1_Validating);
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -95,11 +93,6 @@ namespace Linquistics
             this.pictureBox1.Size = new System.Drawing.Size(724, 266);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint_1);
-            this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDoubleClick);
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             // 
             // menuStrip1
             // 
@@ -111,7 +104,6 @@ namespace Linquistics
             this.menuStrip1.Size = new System.Drawing.Size(692, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // toolStripMenuItem1
             // 
@@ -128,7 +120,6 @@ namespace Linquistics
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(47, 20);
             this.toolStripMenuItem2.Text = "Opcje";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // opcjeToolStripMenuItem
             // 
@@ -157,7 +148,6 @@ namespace Linquistics
             this.toolStrip1.Size = new System.Drawing.Size(692, 25);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolStripButton1
             // 
@@ -167,7 +157,6 @@ namespace Linquistics
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // panel2
             // 
@@ -359,7 +348,6 @@ namespace Linquistics
             this.button2.TabIndex = 1;
             this.button2.Text = "sprawdü";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox2
             // 
@@ -367,34 +355,19 @@ namespace Linquistics
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 0;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // timer1
             // 
             this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // timer2
             // 
             this.timer2.Interval = 125;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // AutomatsDesign
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 453);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
+            this.ClientSize = new System.Drawing.Size(292, 266);
             this.Name = "AutomatsDesign";
-            this.Text = "Form1";
-            this.Resize += new System.EventHandler(this.Form1_Resize);
-            this.Validating += new System.ComponentModel.CancelEventHandler(this.Form1_Validating);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AutomatsDesign_FormClosing);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AutomatsDesign_KeyDown);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -410,7 +383,6 @@ namespace Linquistics
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
