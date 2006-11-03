@@ -39,9 +39,10 @@ namespace Linquistics
         private char currentChar='a';
         private StringBuilder currentWord = new StringBuilder();
         private bool isAccepted = false;
+        private MainForm mainWindow = null;
 
         private bool nextStep = false;
-        public AutomatsDesign()
+        public AutomatsDesign(MainForm mainW)
         {
             InitializeComponent();
             tbox = new ToolboxAutomats(this);
@@ -50,6 +51,7 @@ namespace Linquistics
             PICTURE_WIDTH = this.pictureBox1.Width;
             IMAGE_DIMENSION = (int)((40.0f / DEFAULT_HEIGHT) * LOGICAL_SIZE.Y);
             mainAutomate = new FinitestateAutomation();
+            mainWindow = mainW;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -107,7 +109,9 @@ namespace Linquistics
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
