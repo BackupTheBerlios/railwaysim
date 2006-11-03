@@ -79,5 +79,23 @@ namespace Linquistics
            return true;
        return false;
        }
+       public bool InnerSimulation(string nap)
+       {
+           this.ActivateAutomate();
+           StateFiniteAutomata nextSt;
+           StringBuilder sBuild=new StringBuilder(nap);
+           char nextChar = 'a';
+           while (sBuild.Length > 0)
+           {
+               nextChar = sBuild[0];
+               sBuild.Remove(0, 1);
+               nextSt = operationFunction.GetNextState(currentState, nextChar);
+               if (nextSt == null) return false;
+               currentState = nextSt;
+           }
+           if (this.IsInAcceptedState()) return true;
+           return false;
+
+       }
  } 
 }

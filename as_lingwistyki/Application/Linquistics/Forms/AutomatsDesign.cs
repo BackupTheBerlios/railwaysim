@@ -330,12 +330,23 @@ namespace Linquistics
                 currentWord = new StringBuilder(textBox2.Text.Trim());
                 if (currentWord.Length>0&&radioButton1.Checked)
                     this.stepSimulation();
+                else if (currentWord.Length > 0 && radioButton2.Checked)
+                    this.suddenSimulation();
             }
         }
         private void stepSimulation()
         {
             mainAutomate.ActivateAutomate();
             timer1.Start();
+        }
+        private void suddenSimulation()
+        {
+            if (mainAutomate.InnerSimulation(currentWord.ToString()))
+                textBox2.Text = "nalezy!";
+            else
+                textBox2.Text = "nie nalezy!";
+            textBox2.Refresh();
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -369,6 +380,8 @@ namespace Linquistics
                 timer2.Stop();
                 timer1.Stop();
                 this.textBox2.Text = "nie nalezy!!!";
+                textBox2.Refresh();
+                return;
             }            
             else
             {

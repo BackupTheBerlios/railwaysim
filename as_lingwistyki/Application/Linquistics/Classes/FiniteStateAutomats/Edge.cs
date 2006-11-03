@@ -16,7 +16,7 @@ namespace Linquistics
         static private Font drawingFont;
         static private int FONT_HEIGHT = 12;
         static private Pen bevelPen;
-        static private Color bevelColor = Color.Gold;
+        static private Color bevelColor = Color.Red;
         private int beginx, beginy, a1x, a1y, a2x, a2y;
         private PointF textPosition;
         static private Pen arrowPen = new Pen(Brushes.DarkBlue, 2);
@@ -140,7 +140,12 @@ namespace Linquistics
                 Point control1 = new Point(beginNode.ScreenPosition.X + 2 * beginNode.Radius, beginNode.ScreenPosition.Y - 3 * beginNode.Radius);
                 Point control2 = new Point(beginNode.ScreenPosition.X, beginNode.ScreenPosition.Y - 3 * beginNode.Radius);
                 Point end = new Point(beginx, beginy);
-
+                if (Bevel != 0)
+                {
+                    bevelColor = Color.FromArgb(Bevel * 50, bevelColor);
+                    bevelPen = new Pen(bevelColor, 2 * Bevel - 1);
+                    e.Graphics.DrawBezier(bevelPen, beginNode.ScreenPosition, control1, control2, end);
+                }
                 e.Graphics.DrawBezier(arrowPen, beginNode.ScreenPosition, control1, control2, end);
             }
 
