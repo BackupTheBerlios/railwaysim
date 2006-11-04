@@ -60,6 +60,27 @@ namespace Linquistics.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap button_automats1 {
+            get {
+                object obj = ResourceManager.GetObject("button_automats1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap button_automats1_hover {
+            get {
+                object obj = ResourceManager.GetObject("button_automats1_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap button_return {
+            get {
+                object obj = ResourceManager.GetObject("button_return", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap ikon1_automat {
             get {
                 object obj = ResourceManager.GetObject("ikon1_automat", resourceCulture);
@@ -84,6 +105,13 @@ namespace Linquistics.Properties {
         internal static System.Drawing.Bitmap ikon4_automat {
             get {
                 object obj = ResourceManager.GetObject("ikon4_automat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap menu_bkg_copy {
+            get {
+                object obj = ResourceManager.GetObject("menu_bkg copy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

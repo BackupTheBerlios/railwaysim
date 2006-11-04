@@ -13,9 +13,13 @@ namespace Linquistics
         public MainForm()
         {
             InitializeComponent();
-        }
+        }       
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void MainForm_Load_1(object sender, EventArgs e)
         {
             timer1.Start();
         }
@@ -63,5 +67,7 @@ namespace Linquistics
         {
             button1.ImageIndex = 2;
         }
+
+       
     }
 }

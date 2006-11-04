@@ -327,7 +327,7 @@ namespace Linquistics
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
             if (mainAutomate != null)
             {
@@ -353,7 +353,7 @@ namespace Linquistics
             
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick_1(object sender, EventArgs e)
         {
             if(currentWord.Length==0&&mainAutomate.IsInAcceptedState())
             {
@@ -401,6 +401,14 @@ namespace Linquistics
             graph.SelectedEdgeNextFrame();
             pictureBox1.Refresh();
         }
+
+        
+
+        
+
+       
+
+       
         
     }
 }

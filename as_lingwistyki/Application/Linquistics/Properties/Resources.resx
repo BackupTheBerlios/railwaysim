@@ -121,13 +121,25 @@
   <data name="ikon4_automat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ikon4_automat.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ikon1_automat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ikon1_automat.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ikon3_automat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ikon3_automat.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_bkg copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu_bkg copy.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ikon2_automat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ikon2_automat.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ikon3_automat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ikon3_automat.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ikon1_automat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ikon1_automat.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_automats1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_automats1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_automats1_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_automats1_hover.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_return" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_return.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
