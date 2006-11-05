@@ -60,6 +60,13 @@ namespace Linquistics.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap arrow {
+            get {
+                object obj = ResourceManager.GetObject("arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap button_automats1 {
             get {
                 object obj = ResourceManager.GetObject("button_automats1", resourceCulture);
@@ -74,9 +81,37 @@ namespace Linquistics.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap button_minus {
+            get {
+                object obj = ResourceManager.GetObject("button_minus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap button_plus {
+            get {
+                object obj = ResourceManager.GetObject("button_plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap button_return {
             get {
                 object obj = ResourceManager.GetObject("button_return", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap button_start {
+            get {
+                object obj = ResourceManager.GetObject("button_start", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap button_stop {
+            get {
+                object obj = ResourceManager.GetObject("button_stop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -43,7 +43,6 @@ namespace Linquistics
             this.label2 = new System.Windows.Forms.Label();
             this.terminalsTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.wizardPictureBox = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.simulateBtn = new System.Windows.Forms.Button();
             this.checkNowBtn = new System.Windows.Forms.Button();
@@ -71,12 +70,17 @@ namespace Linquistics
             this.usuñToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wycieralneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bezu¿yteczneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minusPictureBox = new System.Windows.Forms.PictureBox();
+            this.plusPictureBox = new System.Windows.Forms.PictureBox();
+            this.wizardPictureBox = new System.Windows.Forms.PictureBox();
             this.grammarDefPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.wizardPictureBox)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.minusPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plusPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wizardPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // grammarDefPanel
@@ -219,22 +223,11 @@ namespace Linquistics
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Location = new System.Drawing.Point(3, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Definicja gramatyki";
-            // 
-            // wizardPictureBox
-            // 
-            this.wizardPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("wizardPictureBox.Image")));
-            this.wizardPictureBox.Location = new System.Drawing.Point(161, 3);
-            this.wizardPictureBox.Name = "wizardPictureBox";
-            this.wizardPictureBox.Size = new System.Drawing.Size(36, 36);
-            this.wizardPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.wizardPictureBox.TabIndex = 1;
-            this.wizardPictureBox.TabStop = false;
-            this.wizardPictureBox.Click += new System.EventHandler(this.wizardPictureBox_Click);
             // 
             // panel4
             // 
@@ -297,7 +290,9 @@ namespace Linquistics
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.minusPictureBox);
+            this.panel2.Controls.Add(this.plusPictureBox);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -310,7 +305,7 @@ namespace Linquistics
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(355, 11);
+            this.label6.Location = new System.Drawing.Point(354, 13);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(122, 13);
             this.label6.TabIndex = 1;
@@ -338,12 +333,12 @@ namespace Linquistics
             // startStopBtn
             // 
             this.startStopBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.startStopBtn.BackgroundImage = global::Linquistics.Properties.Resources.button_start;
             this.startStopBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.startStopBtn.Location = new System.Drawing.Point(425, 107);
+            this.startStopBtn.Location = new System.Drawing.Point(0, 125);
             this.startStopBtn.Name = "startStopBtn";
-            this.startStopBtn.Size = new System.Drawing.Size(60, 60);
+            this.startStopBtn.Size = new System.Drawing.Size(75, 49);
             this.startStopBtn.TabIndex = 0;
-            this.startStopBtn.Text = "Start";
             this.startStopBtn.UseVisualStyleBackColor = false;
             this.startStopBtn.Visible = false;
             // 
@@ -467,6 +462,35 @@ namespace Linquistics
             this.bezu¿yteczneToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.bezu¿yteczneToolStripMenuItem.Text = "Bezu¿yteczne";
             // 
+            // minusPictureBox
+            // 
+            this.minusPictureBox.Image = global::Linquistics.Properties.Resources.button_minus;
+            this.minusPictureBox.Location = new System.Drawing.Point(47, 4);
+            this.minusPictureBox.Name = "minusPictureBox";
+            this.minusPictureBox.Size = new System.Drawing.Size(22, 22);
+            this.minusPictureBox.TabIndex = 3;
+            this.minusPictureBox.TabStop = false;
+            // 
+            // plusPictureBox
+            // 
+            this.plusPictureBox.Image = global::Linquistics.Properties.Resources.button_plus;
+            this.plusPictureBox.Location = new System.Drawing.Point(19, 4);
+            this.plusPictureBox.Name = "plusPictureBox";
+            this.plusPictureBox.Size = new System.Drawing.Size(22, 22);
+            this.plusPictureBox.TabIndex = 2;
+            this.plusPictureBox.TabStop = false;
+            // 
+            // wizardPictureBox
+            // 
+            this.wizardPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("wizardPictureBox.Image")));
+            this.wizardPictureBox.Location = new System.Drawing.Point(172, 4);
+            this.wizardPictureBox.Name = "wizardPictureBox";
+            this.wizardPictureBox.Size = new System.Drawing.Size(22, 22);
+            this.wizardPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.wizardPictureBox.TabIndex = 1;
+            this.wizardPictureBox.TabStop = false;
+            this.wizardPictureBox.Click += new System.EventHandler(this.wizardPictureBox_Click);
+            // 
             // GrammarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -482,7 +506,6 @@ namespace Linquistics
             this.Load += new System.EventHandler(this.GrammarForm_Load);
             this.grammarDefPanel.ResumeLayout(false);
             this.grammarDefPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.wizardPictureBox)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -490,6 +513,9 @@ namespace Linquistics
             this.panel3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.minusPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plusPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wizardPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -539,5 +565,7 @@ namespace Linquistics
         public System.Windows.Forms.TextBox productionsNumTextBox;
         public System.Windows.Forms.ComboBox startSymbolComboBox;
         public System.Windows.Forms.TextBox nonTerminalsTextBox;
+        private System.Windows.Forms.PictureBox minusPictureBox;
+        private System.Windows.Forms.PictureBox plusPictureBox;
     }
 }
