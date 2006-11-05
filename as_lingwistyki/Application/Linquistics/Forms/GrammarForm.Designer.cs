@@ -77,7 +77,6 @@ namespace Linquistics
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minusPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plusPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wizardPictureBox)).BeginInit();
@@ -333,8 +332,8 @@ namespace Linquistics
             // startStopBtn
             // 
             this.startStopBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.startStopBtn.BackgroundImage = global::Linquistics.Properties.Resources.button_start;
             this.startStopBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.startStopBtn.Image = global::Linquistics.Properties.Resources.button_start;
             this.startStopBtn.Location = new System.Drawing.Point(0, 125);
             this.startStopBtn.Name = "startStopBtn";
             this.startStopBtn.Size = new System.Drawing.Size(75, 49);
@@ -344,9 +343,6 @@ namespace Linquistics
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.plikToolStripMenuItem,
-            this.opcjeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(692, 24);
@@ -511,8 +507,6 @@ namespace Linquistics
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minusPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plusPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wizardPictureBox)).EndInit();

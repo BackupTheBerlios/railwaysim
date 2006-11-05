@@ -216,28 +216,15 @@
     <EmbeddedResource Include="Resources\menu_bkg copy.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\arrow.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\button_minus.jpg" />
     <EmbeddedResource Include="Resources\button_plus.jpg" />
     <EmbeddedResource Include="Resources\button_start.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\arrow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Resources\button_stop.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\button_plus1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\button_start1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\button_stop1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\button_minus1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\arrow1.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
