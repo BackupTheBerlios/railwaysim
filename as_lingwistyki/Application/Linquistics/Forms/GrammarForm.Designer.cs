@@ -297,7 +297,7 @@ namespace Linquistics
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -320,7 +320,7 @@ namespace Linquistics
             // 
             this.panel5.AutoScroll = true;
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(17, 27);
+            this.panel5.Location = new System.Drawing.Point(16, 27);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(460, 213);
             this.panel5.TabIndex = 0;

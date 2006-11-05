@@ -15,6 +15,7 @@ namespace Linquistics
 
         GrammarForm             form;
         ContextFreeGrammar      grammar;
+        ContextFreeGrammar      copyOfGrammar;
 
         public GrammarManager(GrammarForm parGrammarForm)
         {
