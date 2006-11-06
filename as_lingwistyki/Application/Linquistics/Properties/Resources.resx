@@ -127,6 +127,9 @@
   <data name="button_automats1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_automats1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="wizard_image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wizard_image.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ikon2_automat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ikon2_automat.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -148,13 +151,11 @@
   <data name="ikon3_automat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ikon3_automat.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button_plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_plus.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="wizard_image_end" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wizard_image_end.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="wizard_image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wizard_image.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button_plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_plus.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  
 </root>

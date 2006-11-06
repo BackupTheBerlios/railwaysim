@@ -107,12 +107,7 @@ namespace Linquistics
 
         
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            mainWindow.Show();
-            this.Close();
-        }
+       
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -400,6 +395,41 @@ namespace Linquistics
         {
             graph.SelectedEdgeNextFrame();
             pictureBox1.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LingistykaInterfejsy.Wizard.WizardAutomatsKrokEnd wiz1 = new LingistykaInterfejsy.Wizard.WizardAutomatsKrokEnd();
+            wiz1.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            LingistykaInterfejsy.Wizard.WizardAutomatsKrok1 wiz1 = new LingistykaInterfejsy.Wizard.WizardAutomatsKrok1();
+            wiz1.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LingistykaInterfejsy.Wizard.WizardAutomatsKrok1 wiz1 = new LingistykaInterfejsy.Wizard.WizardAutomatsKrok1();
+            wiz1.ShowDialog();
+        }
+
+        private void menuStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            mainWindow.Show();
+            this.Close();
         }
 
         

@@ -31,14 +31,6 @@ namespace Linquistics
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.opcjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuñNiedeterminizmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.minimalizujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button3 = new System.Windows.Forms.Button();
@@ -61,15 +53,23 @@ namespace Linquistics
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opcjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wyra¿eniaRegularneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuñNiedeterminizmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minimalizacjaAutomatuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -99,74 +99,6 @@ namespace Linquistics
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint_1);
             this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDoubleClick);
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(692, 24);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(34, 20);
-            this.toolStripMenuItem1.Text = "Plik";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.opcjeToolStripMenuItem,
-            this.usuñNiedeterminizmToolStripMenuItem,
-            this.minimalizujToolStripMenuItem});
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(47, 20);
-            this.toolStripMenuItem2.Text = "Opcje";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // opcjeToolStripMenuItem
-            // 
-            this.opcjeToolStripMenuItem.Name = "opcjeToolStripMenuItem";
-            this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
-            this.opcjeToolStripMenuItem.Text = "Generuj z wyra¿enia regularnego...";
-            // 
-            // usuñNiedeterminizmToolStripMenuItem
-            // 
-            this.usuñNiedeterminizmToolStripMenuItem.Name = "usuñNiedeterminizmToolStripMenuItem";
-            this.usuñNiedeterminizmToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
-            this.usuñNiedeterminizmToolStripMenuItem.Text = "Usuñ niedeterminizm...";
-            // 
-            // minimalizujToolStripMenuItem
-            // 
-            this.minimalizujToolStripMenuItem.Name = "minimalizujToolStripMenuItem";
-            this.minimalizujToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
-            this.minimalizujToolStripMenuItem.Text = "Minimalizuj...";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(692, 25);
-            this.toolStrip1.TabIndex = 4;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::Linquistics.Properties.Resources.button_return;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.ToolTipText = "powróæ do g³ównego menu";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // panel2
             // 
@@ -216,6 +148,7 @@ namespace Linquistics
             this.button3.TabIndex = 12;
             this.button3.Text = "Edytuj";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -225,6 +158,7 @@ namespace Linquistics
             this.button1.TabIndex = 11;
             this.button1.Text = "Edytuj";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // listView3
             // 
@@ -306,6 +240,7 @@ namespace Linquistics
             this.button4.TabIndex = 4;
             this.button4.Text = "Edytuj";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label4
             // 
@@ -322,7 +257,7 @@ namespace Linquistics
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Location = new System.Drawing.Point(4, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(92, 58);
+            this.groupBox1.Size = new System.Drawing.Size(93, 58);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SprawdŸ:";
@@ -351,11 +286,12 @@ namespace Linquistics
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(94, 63);
+            this.button2.BackgroundImage = global::Linquistics.Properties.Resources.button_start;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button2.Location = new System.Drawing.Point(96, 63);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(61, 57);
+            this.button2.Size = new System.Drawing.Size(77, 57);
             this.button2.TabIndex = 1;
-            this.button2.Text = "sprawdŸ";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
@@ -377,15 +313,84 @@ namespace Linquistics
             this.timer2.Interval = 125;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.plikToolStripMenuItem,
+            this.opcjeToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(692, 24);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked_1);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(692, 25);
+            this.toolStrip1.TabIndex = 7;
+            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked_1);
+            // 
+            // plikToolStripMenuItem
+            // 
+            this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
+            this.plikToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
+            this.plikToolStripMenuItem.Text = "Plik";
+            // 
+            // opcjeToolStripMenuItem
+            // 
+            this.opcjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wyra¿eniaRegularneToolStripMenuItem,
+            this.usuñNiedeterminizmToolStripMenuItem,
+            this.minimalizacjaAutomatuToolStripMenuItem});
+            this.opcjeToolStripMenuItem.Name = "opcjeToolStripMenuItem";
+            this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.opcjeToolStripMenuItem.Text = "Opcje";
+            // 
+            // wyra¿eniaRegularneToolStripMenuItem
+            // 
+            this.wyra¿eniaRegularneToolStripMenuItem.Name = "wyra¿eniaRegularneToolStripMenuItem";
+            this.wyra¿eniaRegularneToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.wyra¿eniaRegularneToolStripMenuItem.Text = "Wyra¿enia regularne...";
+            // 
+            // usuñNiedeterminizmToolStripMenuItem
+            // 
+            this.usuñNiedeterminizmToolStripMenuItem.Name = "usuñNiedeterminizmToolStripMenuItem";
+            this.usuñNiedeterminizmToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.usuñNiedeterminizmToolStripMenuItem.Text = "Usuñ niedeterminizm...";
+            // 
+            // minimalizacjaAutomatuToolStripMenuItem
+            // 
+            this.minimalizacjaAutomatuToolStripMenuItem.Name = "minimalizacjaAutomatuToolStripMenuItem";
+            this.minimalizacjaAutomatuToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.minimalizacjaAutomatuToolStripMenuItem.Text = "Minimalizacja automatu...";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.BackgroundImage = global::Linquistics.Properties.Resources.button_return;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::Linquistics.Properties.Resources.button_return;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
+            // 
             // AutomatsDesign
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 453);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "AutomatsDesign";
             this.Text = "Form1";
             this.Resize += new System.EventHandler(this.Form1_Resize);
@@ -395,10 +400,6 @@ namespace Linquistics
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -407,6 +408,10 @@ namespace Linquistics
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,11 +420,8 @@ namespace Linquistics
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button4;
@@ -437,15 +439,18 @@ namespace Linquistics
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem opcjeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuñNiedeterminizmToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem minimalizujToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripMenuItem plikToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem opcjeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wyra¿eniaRegularneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuñNiedeterminizmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem minimalizacjaAutomatuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 
