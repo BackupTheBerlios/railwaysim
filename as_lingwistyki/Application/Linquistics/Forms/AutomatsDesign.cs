@@ -432,6 +432,19 @@ namespace Linquistics
             this.Close();
         }
 
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void plikToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.graph != null)
+            {
+                this.textBox2.Text = "juz: "+this.graph.calculateCrossings();
+            }
+        }
+
         
 
         

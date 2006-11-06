@@ -58,6 +58,7 @@
     <Compile Include="Classes\FiniteStateAutomats\GraphAutomats.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\FiniteStateAutomats\GraphAutomatsSimulatedAnnealing.cs" />
     <Compile Include="Classes\FiniteStateAutomats\Node.cs">
       <SubType>Code</SubType>
     </Compile>

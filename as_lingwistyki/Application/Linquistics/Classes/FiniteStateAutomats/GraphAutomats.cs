@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Linquistics
 {
-    class GraphAutomats
+    partial class GraphAutomats
     {
         private List<Node> nodes = new List<Node>();
         private List<Edge> edges = new List<Edge>();

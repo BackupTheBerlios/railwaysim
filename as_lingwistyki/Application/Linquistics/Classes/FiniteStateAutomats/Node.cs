@@ -60,6 +60,7 @@ namespace Linquistics
                FontStyle.Bold,
                GraphicsUnit.Pixel);            
         }
+        
         public Node(int type, Point screenPos, string s) : this(type, screenPos)
         {    
             name = s;
@@ -109,12 +110,28 @@ namespace Linquistics
                 return screenPosition;
             }
         }
+        public PointF LogicalPosition
+        {
+            get { return this.centerPoint; }
+            set { centerPoint = value; }
+        }
         public Bitmap Picture
         {
             get
             {
                 return statePicture;
             }
+        }
+        public void RandomizeLocation(Rectangle rect)
+        {
+            Random ran1=new Random((int)DateTime.Now.Ticks);
+            float ratiox=(float)ran1.NextDouble();
+            float ratioy=(float)ran1.NextDouble();
+            this.centerPoint.X = ratiox*AutomatsDesign.LOGICAL_SIZE.X;
+            this.centerPoint.Y = ratioy* AutomatsDesign.LOGICAL_SIZE.Y;
+            this.screenPosition.X = (int)(ratiox * (float)rect.Width);
+            this.screenPosition.Y = (int)(ratioy * (float)rect.Height);
+
         }
         public void DrawNode(PaintEventArgs e)
         {
@@ -126,6 +143,15 @@ namespace Linquistics
         public void DrawSelection(PaintEventArgs e)
         {
             e.Graphics.DrawEllipse(new Pen(Brushes.Red,3), this.screenPosition.X-radius, this.screenPosition.Y-radius, 2*radius-2, 2*radius-3);
+        }
+        public double ReturnDistnacesSum()
+        {
+            double dist1 = 1.0 / Math.Pow(centerPoint.X, 2);
+            dist1+=(1.0/Math.Pow(AutomatsDesign.LOGICAL_SIZE.X-centerPoint.X,2));
+            dist1 += 1.0 / Math.Pow(centerPoint.Y, 2);
+            dist1 += (1.0 / Math.Pow(AutomatsDesign.LOGICAL_SIZE.Y - centerPoint.Y,2));
+            return dist1;
+
         }
     }
 }
