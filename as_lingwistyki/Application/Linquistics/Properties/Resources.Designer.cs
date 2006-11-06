@@ -136,5 +136,19 @@ namespace Linquistics.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap wizard_image {
+            get {
+                object obj = ResourceManager.GetObject("wizard_image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap wizard_image_end {
+            get {
+                object obj = ResourceManager.GetObject("wizard_image_end", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
