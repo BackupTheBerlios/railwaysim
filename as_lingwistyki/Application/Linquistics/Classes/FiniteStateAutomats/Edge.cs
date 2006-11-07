@@ -42,6 +42,26 @@ namespace Linquistics
             makeString();
           
         }
+        public Edge(Node bNode, Node eNode, List<Char> charsArg)
+        {
+            beginNode = bNode;
+            endNode = eNode;
+            Chars = new List<Char>();
+            for(int i=0;i<charsArg.Count;i++)
+                Chars.Add(charsArg[i]);
+            calculateArrow();
+            FontFamily fontFamily = new FontFamily("Arial");
+            drawingFont = new Font(
+               fontFamily,
+               FONT_HEIGHT,
+               FontStyle.Regular,
+               GraphicsUnit.Pixel);
+            makeString();
+        }
+        public void RefreshEdge()
+        {
+            calculateArrow();
+        }
         public Node BeginNode
         {
             get { return beginNode; }

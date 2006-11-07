@@ -15,6 +15,10 @@ namespace Linquistics
         private Edge animatedEdge = null;
         static public int FRAMES_NUMBER = 8;
         private int frameStep = 1;
+        public GraphAutomats()
+        {
+            randomGenerator = new Random((int)DateTime.Now.Ticks);
+        }
         public List<Node> Nodes
         {
             get
@@ -174,6 +178,23 @@ namespace Linquistics
              
             }
             return null;
+        }
+        public bool SimulatedAnnealing(Rectangle rect)
+        {
+            if (this.simulateAnnealing(rect)) return true;
+            return false;
+        }
+        private void actualizeNodesScreenPositions()
+        {
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                nodes[i].actualizeScreenPosition();
+            }
+            for (int i = 0; i < edges.Count; i++)
+            {
+                edges[i].RefreshEdge();
+            }
+
         }
     }
 }

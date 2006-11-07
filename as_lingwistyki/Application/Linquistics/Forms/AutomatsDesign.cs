@@ -445,6 +445,18 @@ namespace Linquistics
             }
         }
 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            if (this.graph != null)
+            {
+
+
+                if (this.graph.SimulatedAnnealing(pictureBox1.ClientRectangle))
+                    this.pictureBox1.Refresh();
+            }
+
+        }
+
         
 
         

@@ -19,20 +19,33 @@ namespace Linquistics
         private string name = "";
         private static int FONT_HEIGHT = 14;
         private static Font nodeFont;
+        private int typeNode;
+        private static Random ran1=null; 
         
+        static Node()
+        {
+          ran1  = new Random((int)DateTime.Now.Ticks);
+          FontFamily fontFamily = new FontFamily("Arial");
+          nodeFont = new Font(
+             fontFamily,
+             FONT_HEIGHT,
+             FontStyle.Bold,
+             GraphicsUnit.Pixel);   
         
+        }
         public Node(int type,Point screenPos)
         {
             screenPosition = screenPos;
-            float ratioX = (float)AutomatsDesign.PICTURE_WIDTH / (float)screenPosition.X;
+            float ratioX =  (float)screenPosition.X / (float)AutomatsDesign.PICTURE_WIDTH ;
             centerPoint.X = AutomatsDesign.LOGICAL_SIZE.X * ratioX;
-            float ratioY = (float)AutomatsDesign.PICTURE_HEIGHT / (float)screenPosition.Y;
+            float ratioY =  (float)screenPosition.Y /(float)AutomatsDesign.PICTURE_HEIGHT ;
             centerPoint.Y = AutomatsDesign.LOGICAL_SIZE.Y * ratioY;
             try
             {
                 System.Reflection.Assembly thisExe;
                 thisExe = System.Reflection.Assembly.GetExecutingAssembly();
                 String imagePath="";
+                typeNode = type;
                 switch (type)
                 {
                     case 0: imagePath = "Linquistics.Resources.state_begin.bmp"; break;
@@ -53,17 +66,45 @@ namespace Linquistics
             {
 
             }
-            FontFamily fontFamily = new FontFamily("Arial");
-            nodeFont = new Font(
-               fontFamily,
-               FONT_HEIGHT,
-               FontStyle.Bold,
-               GraphicsUnit.Pixel);            
+                     
         }
-        
+        public void actualizeScreenPosition()
+        {
+            this.screenPosition.X =(int)( this.LogicalPosition.X * AutomatsDesign.PICTURE_WIDTH);
+            this.screenPosition.Y = (int)(this.LogicalPosition.Y * AutomatsDesign.PICTURE_HEIGHT);
+        }
         public Node(int type, Point screenPos, string s) : this(type, screenPos)
         {    
             name = s;
+        }
+        public Node(Node pattern) 
+        {
+            screenPosition.X = pattern.screenPosition.X;
+            screenPosition.Y = pattern.screenPosition.Y;
+            this.name = pattern.name;
+            centerPoint.X = pattern.centerPoint.X;
+
+            centerPoint.Y = pattern.centerPoint.Y;
+            typeNode = pattern.typeNode;
+            try
+            {
+                System.Reflection.Assembly thisExe;
+                thisExe = System.Reflection.Assembly.GetExecutingAssembly();
+                String imagePath = "";
+                
+                
+
+
+                statePicture = pattern.statePicture;
+
+                
+                widthPict = pattern.widthPict;
+                radius = pattern.radius;
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         public string Name
         {
@@ -124,7 +165,7 @@ namespace Linquistics
         }
         public void RandomizeLocation(Rectangle rect)
         {
-            Random ran1=new Random((int)DateTime.Now.Ticks);
+            
             float ratiox=(float)ran1.NextDouble();
             float ratioy=(float)ran1.NextDouble();
             this.centerPoint.X = ratiox*AutomatsDesign.LOGICAL_SIZE.X;
