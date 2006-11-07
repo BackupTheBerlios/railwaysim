@@ -12,17 +12,18 @@ namespace Linquistics
         private static double temperatureFactor = 0.75;
         private static double currentTemperature = 0;
         private List<Node> bestNodes = null;
-        private static int trialsNumber = 300;
+        private static int trialsNumber = 1000;
         private static int trialsCount = 0;
-        private static double lambdaDistanceNode = 0.5;
-        private static double lambdaDistanceBorder = 0.7;
+        private static double lambdaDistanceNode = 0.05;
+        private static double lambdaDistanceBorder = 0.0005;
+        private static double lambdaDistanceEdgeNode = 0.0002;
         private static double lambdaCrossings = 1.0;
         private static Random randomGenerator =  null;
         private static GraphAutomats graphNew =null;
         private static float currentRadius = 1.0f;
         private static float startRadius = 1.0f;
-        private static double energyMax = 0.1;
-        private static double minimalDistNodeEdge = 0.1f;
+        private static double energyMax = 1.0;
+        private static float minimalDistNodeEdge = 0.1f;
        
 
 
@@ -36,7 +37,7 @@ namespace Linquistics
             {
                 nodes[i].RandomizeLocation(border);
             }
-            trialsNumber = 30 * nodes.Count; //set value proportional to nodes number
+            trialsNumber = Math.Max(30 * nodes.Count,trialsNumber); //set value proportional to nodes number
 
         }
         private bool simulateAnnealing(Rectangle border)
@@ -89,20 +90,23 @@ namespace Linquistics
         private double calculateEnergy()
         {
             double functVal = 0;
-            functVal += lambdaDistanceNode/sumNodeDistances(); //first condition - distances between nodes
-            functVal += lambdaDistanceBorder / sumBorderDist();
-            functVal += lambdaCrossings * (float)calculateCrossings();
+            functVal += lambdaDistanceNode*sumNodeDistances(); //first condition - distances between nodes
+            functVal += lambdaDistanceBorder * sumBorderDist();
+            functVal += lambdaCrossings * calculateCrossings();
+            functVal += lambdaDistanceEdgeNode * calculateNodeEdgeDistances();
             return functVal;
         }
-        private float calculateNodeEdgeDistances()
+        public double calculateNodeEdgeDistances()
         {
             int i = 0;
             int k = 0;
             float a, b, c;
             float x1,x2,y1,y2;
-            float sum = 0.0f;
+           double sum = 0.0f;
             float dist = 0.0f;
-            float minSqr = 0.0f;
+            float distBeg = 0.0f;
+            float distEnd = 0.0f;
+           
             for (i = 0; i < this.edges.Count; i++)
             {
                 x1=edges[i].BeginNode.LogicalPosition.X;
@@ -114,8 +118,13 @@ namespace Linquistics
                 c = -x1 * a - y1 * b;
                 for (k = 0; k < this.nodes.Count; k++)
                 {
-                   // distSq = Math.Pow(Math.Abs(a * this.nodes[k].LogicalPosition.X + b * this.nodes[k].LogicalPosition.Y + c), 2) / (Math.Pow(a, 2) + Math.Pow(b, 2));
-                   // if(
+                    dist =(float)( Math.Abs(a * this.nodes[k].LogicalPosition.X + b * this.nodes[k].LogicalPosition.Y + c) / Math.Sqrt((Math.Pow(a, 2) + Math.Pow(b, 2))));
+                    distBeg = (float)Math.Sqrt(Math.Pow(this.nodes[k].LogicalPosition.X - x1, 2) + Math.Pow(this.nodes[k].LogicalPosition.Y - y1, 2));
+                    distEnd = (float)Math.Sqrt(Math.Pow(this.nodes[k].LogicalPosition.X - x2, 2) + Math.Pow(this.nodes[k].LogicalPosition.Y - y2, 2));
+                    dist = (float)Math.Min(Math.Min(dist, distBeg),distEnd);
+                    if(dist<minimalDistNodeEdge)
+                        dist=minimalDistNodeEdge;
+                    sum += (1.0/Math.Pow(dist, 2));
                 }
             }
             return sum;
@@ -162,7 +171,7 @@ namespace Linquistics
             {
                 for (k = i + 1; k < nodes.Count; k++)
                 {
-                    sum+= Math.Sqrt(Math.Pow(nodes[i].LogicalPosition.X-nodes[k].LogicalPosition.X,2)+Math.Pow(nodes[i].LogicalPosition.Y-nodes[k].LogicalPosition.Y,2));
+                    sum += (1.0 / Math.Sqrt(Math.Pow(nodes[i].LogicalPosition.X - nodes[k].LogicalPosition.X, 2) + Math.Pow(nodes[i].LogicalPosition.Y - nodes[k].LogicalPosition.Y, 2)));
                 }
             }
             if (sum == 0) sum = EPSILON;
@@ -194,7 +203,9 @@ namespace Linquistics
                     if (edges[i].BeginNode != edges[k].BeginNode &&
                         edges[i].BeginNode != edges[k].EndNode &&
                         edges[i].EndNode != edges[k].BeginNode &&
-                        edges[i].EndNode != edges[k].EndNode)
+                        edges[i].EndNode != edges[k].EndNode &&
+                        edges[i].BeginNode != edges[i].EndNode &&
+                        edges[k].BeginNode != edges[k].EndNode )
                     {
                         double det1=detFunction(edges[i].BeginNode.LogicalPosition, edges[i].EndNode.LogicalPosition, edges[k].BeginNode.LogicalPosition);
                         double det2=detFunction(edges[i].BeginNode.LogicalPosition, edges[i].EndNode.LogicalPosition, edges[k].EndNode.LogicalPosition);

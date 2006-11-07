@@ -188,9 +188,14 @@ namespace Linquistics
         public double ReturnDistnacesSum()
         {
             double dist1 = 1.0 / Math.Pow(centerPoint.X, 2);
-            dist1+=(1.0/Math.Pow(AutomatsDesign.LOGICAL_SIZE.X-centerPoint.X,2));
+            double ddr=AutomatsDesign.LOGICAL_SIZE.X-centerPoint.X;
+            double ddbot=AutomatsDesign.LOGICAL_SIZE.Y - centerPoint.Y;
+            if(ddbot<0) ddbot=0.0001;
+            if(ddr<0) ddr=0.0001;
+            
+            dist1+=(1.0/Math.Pow(ddr,2));
             dist1 += 1.0 / Math.Pow(centerPoint.Y, 2);
-            dist1 += (1.0 / Math.Pow(AutomatsDesign.LOGICAL_SIZE.Y - centerPoint.Y,2));
+            dist1 += (1.0 / Math.Pow(ddbot,2));
             return dist1;
 
         }
