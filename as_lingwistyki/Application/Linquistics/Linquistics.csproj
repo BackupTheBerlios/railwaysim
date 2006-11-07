@@ -107,6 +107,12 @@
     <Compile Include="Forms\GrammarForm.Designer.cs">
       <DependentUpon>GrammarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\GrammarWizard\GrammarWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GrammarWizard\GrammarWizard.Designer.cs">
+      <DependentUpon>GrammarWizard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,9 +243,6 @@
     <EmbeddedResource Include="Resources\button_start.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\arrow.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\button_stop.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +265,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\ikon2_automat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\arrow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\GrammarWizard\GrammarWizard.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GrammarWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\arrowDark.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

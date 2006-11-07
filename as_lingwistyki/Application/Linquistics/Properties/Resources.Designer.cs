@@ -60,6 +60,20 @@ namespace Linquistics.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap arrow {
+            get {
+                object obj = ResourceManager.GetObject("arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap arrowDark {
+            get {
+                object obj = ResourceManager.GetObject("arrowDark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap button_automats1 {
             get {
                 object obj = ResourceManager.GetObject("button_automats1", resourceCulture);

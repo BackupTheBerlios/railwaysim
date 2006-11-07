@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Linquistics.Forms.GrammarWizard;
 
 namespace Linquistics
 {
@@ -21,6 +22,8 @@ namespace Linquistics
         private void wizardPictureBox_Click(object sender, EventArgs e)
         {
             //stwórz wizarda do definiowania gramatyki
+            GrammarWizard wizard = new GrammarWizard();
+            wizard.ShowDialog();
         }
 
         private void GrammarForm_Load(object sender, EventArgs e)
@@ -106,7 +109,10 @@ namespace Linquistics
 
         #endregion
 
-        
-       
+        private void wczytajGramatykêZXMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -139,6 +139,9 @@
   <data name="ikon4_automat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ikon4_automat.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="button_return" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_return.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -157,5 +160,7 @@
   <data name="button_plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_plus.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  
+  <data name="arrowDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowDark.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
