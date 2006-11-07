@@ -22,9 +22,11 @@ namespace Linquistics
         private static float currentRadius = 1.0f;
         private static float startRadius = 1.0f;
         private static double energyMax = 0.1;
+        private static double minimalDistNodeEdge = 0.1f;
+       
 
 
-        private static double EPSILON = 0.00000001;
+        private static double EPSILON = 0.00001;
         private static GraphAutomats bestGraph = null;
         private static double bestEnergy = 0.0;
         private void generateRandomStartedPoint(Rectangle border)
@@ -91,6 +93,32 @@ namespace Linquistics
             functVal += lambdaDistanceBorder / sumBorderDist();
             functVal += lambdaCrossings * (float)calculateCrossings();
             return functVal;
+        }
+        private float calculateNodeEdgeDistances()
+        {
+            int i = 0;
+            int k = 0;
+            float a, b, c;
+            float x1,x2,y1,y2;
+            float sum = 0.0f;
+            float dist = 0.0f;
+            float minSqr = 0.0f;
+            for (i = 0; i < this.edges.Count; i++)
+            {
+                x1=edges[i].BeginNode.LogicalPosition.X;
+                x2=edges[i].EndNode.LogicalPosition.X;
+                y1=edges[i].BeginNode.LogicalPosition.Y;
+                y2=edges[i].EndNode.LogicalPosition.Y;
+                a = y1 - y2;
+                b = x2 - x1;
+                c = -x1 * a - y1 * b;
+                for (k = 0; k < this.nodes.Count; k++)
+                {
+                   // distSq = Math.Pow(Math.Abs(a * this.nodes[k].LogicalPosition.X + b * this.nodes[k].LogicalPosition.Y + c), 2) / (Math.Pow(a, 2) + Math.Pow(b, 2));
+                   // if(
+                }
+            }
+            return sum;
         }
         private void transformIntoNeighbor()
         {
@@ -173,14 +201,18 @@ namespace Linquistics
                         double det3=detFunction(edges[k].BeginNode.LogicalPosition, edges[k].EndNode.LogicalPosition, edges[i].BeginNode.LogicalPosition);
                         double det4=detFunction(edges[k].BeginNode.LogicalPosition, edges[k].EndNode.LogicalPosition, edges[i].EndNode.LogicalPosition);
                         if (Math.Sign(det1)!=Math.Sign(det2)
-                            && Math.Sign(det3) != Math.Sign(det3))
+                            && Math.Sign(det3) != Math.Sign(det4))
                         {
                             crosNum++;
                         }
-                       // else if(Math.Abs(det1-det2)
-                      //  {
-
-                      //  }
+                        else 
+                        {
+                            if (((Math.Sign(det1) != Math.Sign(det2) || det1 == 0 && det2 == 0) && Math.Abs(det1) < EPSILON && Math.Abs(det1) < EPSILON) ||
+                                ((Math.Sign(det3) != Math.Sign(det4) || det3 == 0 && det4 == 0) && Math.Abs(det3) < EPSILON && Math.Abs(det4) < EPSILON))
+                            {
+                                crosNum++;
+                            }
+                        }
                     }
                 }
             }
