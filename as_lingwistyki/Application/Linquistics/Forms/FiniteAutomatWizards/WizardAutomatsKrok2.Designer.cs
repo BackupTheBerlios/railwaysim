@@ -133,15 +133,15 @@ namespace LingistykaInterfejsy.Wizard
             this.panel3.Size = new System.Drawing.Size(100, 405);
             this.panel3.TabIndex = 0;
             // 
-            // WizardKrok3
+            // WizardAutomatsKrok2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 416);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "WizardKrok3";
-            this.Text = "WizardKrok3";
+            this.Name = "WizardAutomatsKrok2";
+            this.Text = "WizardKrok2";
             this.Load += new System.EventHandler(this.WizardKrok3_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
