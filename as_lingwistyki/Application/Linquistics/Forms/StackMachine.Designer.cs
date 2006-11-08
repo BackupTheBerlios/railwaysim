@@ -592,11 +592,11 @@ namespace Linquistics
             // 
             // button2
             // 
+            this.button2.Image = global::Linquistics.Properties.Resources.button_start;
             this.button2.Location = new System.Drawing.Point(94, 87);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(61, 57);
+            this.button2.Size = new System.Drawing.Size(78, 57);
             this.button2.TabIndex = 1;
-            this.button2.Text = "sprawdü";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // textBox2
