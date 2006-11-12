@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Classes\ContextFreeGrammar\ContextFreeGrammar.cs" />
     <Compile Include="Classes\ContextFreeGrammar\GrammarManager.cs" />
+    <Compile Include="Classes\ContextFreeGrammar\Word.cs" />
     <Compile Include="Classes\FiniteStateAutomats\Alphabet.cs">
       <SubType>Code</SubType>
     </Compile>

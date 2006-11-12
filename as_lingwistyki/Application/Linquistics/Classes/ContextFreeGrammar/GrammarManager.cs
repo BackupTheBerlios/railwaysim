@@ -24,10 +24,15 @@ namespace Linquistics
 
         public void createNewContextFreeGrammarManager()
         {
-            string allTerminals = "";
-            string allNonTerminals = "";
-            string startSymbol = "";
-            int productionsNum = 0;
+            string  allTerminals = "";
+            string  allNonTerminals = "";
+            string  startSymbol = "";
+            int     productionsNum = 0;
+            bool    isEmptyWord = false;
+            string  emptyWordSymbol = "";
+
+            ArrayList terminals = new ArrayList();
+            ArrayList nonTerminals = new ArrayList();
 
             //get data from form
             try
@@ -35,6 +40,9 @@ namespace Linquistics
                 allTerminals = form.terminalsTextBox.Text;
                 allNonTerminals = form.nonTerminalsTextBox.Text;
                 startSymbol = form.startSymbolComboBox.SelectedText;
+                isEmptyWord = form.hasEmptyWord.Checked;
+                emptyWordSymbol = form.emptyWordSymbolTextBox.Text;
+
                 try
                 {
                     productionsNum = Int32.Parse(form.productionsNumTextBox.Text);
@@ -57,10 +65,36 @@ namespace Linquistics
             }
 
             //validate data
+            string[] tab1 = allTerminals.Split(' ');
+            for (int i = 0; i < tab1.Length; i++)
+            {
+                terminals.Add(tab1[i]);//usun¹æ powtórzenia
+            }
+            string[] tab2 = allNonTerminals.Split(' ');
+            for (int i = 0; i < tab2.Length; i++)
+            {
+                nonTerminals.Add(tab2[i]);//usun¹æ powtórzenia
+            }
+            removeRepetitions(terminals);
+            removeRepetitions(nonTerminals);
+            //check if terminals are different from nonTerminals
+            if (!differs(terminals, nonTerminals))
+            {
+                MessageBox.Show("Istniej¹ identyczne terminale i nieterminale! Popraw to i raz jeszcze zatwierdŸ gramatykê");
+                return;
+            }
+            //check if emptyWordWymbol is unique
+            if (isEmptyWord && !isUniqueEmptyWordSymbol(emptyWordSymbol, terminals, nonTerminals))
+            {
+                MessageBox.Show("Symbol s³owa pustego musi byæ unikalny!(Inny ni¿ terminale i nieterminale.");
+                return;
+            }
+            //get productions and verify them
+            //...
 
 
             //create grammar
-            grammar = new ContextFreeGrammar();
+            //grammar = new ContextFreeGrammar(terminals, nonTerminals,startSymbol, isEmptyWord, emptyWordSymbol, productions);
 
             //show information about result of creating
         }
@@ -146,5 +180,55 @@ namespace Linquistics
         {
         }
 
+
+        #region Pomocnicze
+        private void removeRepetitions(ArrayList parSymbols)
+        {
+            int num = parSymbols.Count;
+
+            for (int i = 0; i < num; i++)
+            {
+                string pom = parSymbols[i].ToString();
+                for (int j = i + 1; j < num; j++)
+                {
+                    if (pom.CompareTo(parSymbols[j]) == 0)
+                    {
+                        parSymbols.RemoveAt(j);
+                        num--;
+                    }
+                }
+            }
+        }
+
+        private bool differs(ArrayList parList1, ArrayList parList2)
+        {
+            for (int i = 0; i < parList1.Count; i++)
+            {
+                for (int j = 0; j < parList2.Count; j++)
+                {
+                    if (parList1[i].ToString().CompareTo(parList2[j].ToString()) == 0)
+                        return false;
+                }
+            }
+            return true;
+        }
+
+        private bool isUniqueEmptyWordSymbol(string parEmptyWordSymbol, ArrayList parList1, ArrayList parList2)
+        {
+            for (int i = 0; i < parList1.Count; i++)
+            {
+                if (parEmptyWordSymbol.CompareTo(parList1[i].ToString()) == 0)
+                    return false;
+            }
+            for (int j = 0; j < parList2.Count; j++)
+            {
+                if (parEmptyWordSymbol.CompareTo(parList2[j].ToString()) == 0)
+                    return false;
+            }
+            return true;
+        }
+
+
+        #endregion
     }
 }

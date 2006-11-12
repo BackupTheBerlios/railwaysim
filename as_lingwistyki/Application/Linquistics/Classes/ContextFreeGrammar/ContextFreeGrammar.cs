@@ -9,22 +9,67 @@ namespace Linquistics
     class ContextFreeGrammar
     {
         //Fields
-        ArrayList   terminals;
-        ArrayList   nonTerminals;
-        String      startSymbol;
-
         /// <summary>
-        /// Table of pairs key -> set of results
+        /// Terminals - each terminal is of type string
+        /// </summary>
+        ArrayList   terminals;
+        /// <summary>
+        /// NonTerminals - each nonterminal is of type string
+        /// </summary>
+        ArrayList   nonTerminals;
+        /// <summary>
+        /// One of nonterminals - start symbol of grammar - string
+        /// </summary>
+        string     startSymbol;
+        /// <summary>
+        /// Has grammar got empty word?
+        /// </summary>
+        bool hasEmptyWord;
+        /// <summary>
+        /// Single symbol - symbol of empty word - string
+        /// </summary>
+        string      emptyWordSymbol;
+        /// <summary>
+        /// Table of pairs key -> arrayList of results. Each result is of type Word
         /// </summary>
         Hashtable productions;
 
-        public ContextFreeGrammar()
+
+
+        public ContextFreeGrammar(ArrayList parTerminals, ArrayList parNonTerminals, string parStartSymbol,
+            bool parHasEmptyWord, string parEmptyWordSymbol, Hashtable parProductions)
         {
-            terminals = new ArrayList();
-            nonTerminals = new ArrayList();
-            startSymbol = "";
-            productions = new Hashtable();
+            terminals = parTerminals;
+            nonTerminals = parNonTerminals;
+            startSymbol = parStartSymbol;
+            productions = parProductions;
+            hasEmptyWord = parHasEmptyWord;
+            emptyWordSymbol = parEmptyWordSymbol;
+
+            //InitContextFreeGrammar();
         }
+
+        public void InitContextFreeGrammar()
+        {
+            //SprawdŸ czy s¹ ju¿ nieterminale postaci Cx -  x jest liczb¹
+            int max = 0;
+            for(int i = 0 ; i < nonTerminals.Count; i++)
+            {
+                if(nonTerminals[i].ToString()[0].CompareTo("C") == 0)
+                {
+                    try
+                    {
+                        max = Int32.Parse(nonTerminals[i].ToString().Substring(1));
+                        if(max >= lastNonTermIndex)
+                            lastNonTermIndex = max + 1;
+                    }
+                    catch(Exception ex)
+                    {
+                    }
+                }
+            }
+        }
+
 
         /// <summary>
         /// Copying constructor
@@ -82,6 +127,7 @@ namespace Linquistics
         /// <returns>List of 'First'-symbols for specified nonterminal</returns>
         public ArrayList getFirst(string parNonTerminal)
         {
+            ///Each element in list is of type Word
             ArrayList firstSymbols;
             firstSymbols = new ArrayList();
 
@@ -95,6 +141,7 @@ namespace Linquistics
         /// <returns>List of 'Follow'-symbols for specified nonterminal</returns>
         public ArrayList getFollow(string parNonTerminal)
         {
+            ///Each element in list is of type Word
             ArrayList followSymbols;
             followSymbols = new ArrayList();
 
@@ -121,7 +168,9 @@ namespace Linquistics
         {
         }
 
-       
+
+
+        #region Chomsky
 
         /// <summary>
         /// Transforms grammar to Chomsky form.
@@ -131,48 +180,81 @@ namespace Linquistics
         {
             if (isInChomskyForm()) return;
 
-            //1.zast¹pienie symboli terminalnych z prawych stron produkcji nowymi symbolami nieterminalnymi
+            //1.zast¹pienie symboli terminalnych z prawych stron produkcji (o ile po prawej 
+            //jest wiecej ni¿ jeden symbol) nowymi symbolami nieterminalnymi
             //dodanie produkcji z nowych symboli nieterminalnych w terminale
 
             IDictionaryEnumerator en = productions.GetEnumerator();
+            //Terminale do zamiany na nowe nieterminale
+            ArrayList doZamiany = new ArrayList();
+
             while (en.MoveNext())
             {
+                //List of Words
                 ArrayList productionsSet = (ArrayList)en.Value;
-                for (int i = 0; i < productionsSet.Count; i++)//przegl¹dam arrayList
+                for (int i = 0; i < productionsSet.Count; i++)//przegl¹dam arrayList Word'ów
                 {
-                    if (hasSmallLetter(productionsSet[i].ToString()) && productionsSet[i].ToString().Length > 1)//to zamieñ ma³e na nowe nieterm i dodaj produkcjê
+                    //jeœli wiêcej ni¿ jeden symbol po prawej stronie
+                    //zamieñ terminale na nowe nieterminale i dodaj produkcje
+                    //jeœli po prawej dok³adnie jeden symbol to jest to terminal (wynika z usuniêcia jednostkowych)
+                    if (((Word)productionsSet[i]).word.Count > 1 && hasTerminal(((Word)productionsSet[i])))
                     {
-                        ArrayList doZamiany = new ArrayList();
-                        for (int j = 0; j < productionsSet[i].ToString().Length; j++)
+                       
+                        for (int j = 0; j < ((Word)productionsSet[i]).word.Count; j++)
                         {
-                            if (isSmallLetter(productionsSet[i].ToString()[j]))//zamieñ na nieterm i dodaj produkcjê
+                            //Jeœli jest terminalem zamieñ na nieterm i dodaj produkcjê
+                            if (isTerminal( ((Word)productionsSet[i]).word[j].ToString() ) )
                             {
-                                doZamiany.Add(productionsSet[i].ToString()[j]);
+                                doZamiany.Add(((Word)productionsSet[i]).word[j]);
                             }
-                        }//for(int j
-                        changeSymbolsAndAddProductions(productionsSet[i].ToString(), doZamiany);
-
-                    }//if (hasSmallLetter)
+                        }//for
+                    }//if
                 }//for
-            }///while
+            }//while
+            //Usuñ powtarzaj¹ce siê terminale w liœcie doZamiany
+            removeRepetitions(doZamiany);
+            //Dodaj produkcje z nowych nieterminali w te terminale
+            Hashtable newProductionsRev = addCProductions(doZamiany);
+            //Zamieñ terminale w prawych stronach produkcji o d³ugoœci > 1 na nowe nieterminale
+            en = productions.GetEnumerator();//od nowa przegl¹damy
 
-            //2.jeœli prawa strona zawiera wiecej niz 2 nieterminale to dodajemy produkcjê z
+            while (en.MoveNext())
+            {
+                //List of Words
+                ArrayList productionsSet = (ArrayList)en.Value;
+                for (int i = 0; i < productionsSet.Count; i++)//przegl¹dam arrayList Word'ów dla jednego klucza
+                {
+                    if (((Word)productionsSet[i]).word.Count > 1 && hasTerminal(((Word)productionsSet[i])))
+                    {
+                        //zamieñ terminale na nieterminale z newProductionsRev
+                        changeTerminalsToNonterminals((Word)productionsSet[i], newProductionsRev);
+                    }
+                }
+            }
+
+
+
+            //2.jeœli prawa strona zawiera wiêcej ni¿ 2 nieterminale to dodajemy produkcjê z
             //nowego nieterminala w dwa stare
 
             en = productions.GetEnumerator();//od nowa przegl¹damy
             while (en.MoveNext())
             {
                  ArrayList productionsSet = (ArrayList)en.Value;
-                 for (int i = 0; i < productionsSet.Count; i++)//przegl¹dam arrayList
+                 for (int i = 0; i < productionsSet.Count; i++)//przegl¹dam arrayList Word'ów dla jednego klucza
                  {
-                     while (productionsSet[i].ToString().Length > 2)//wiecej tylko nieterminali
+                     while (((Word)productionsSet[i]).word.Count > 2)//wiecej tylko nieterminali
                      {
                          string newNonTerminal = generateNewCNonTerminal();
-                         productionsSet[i] = newNonTerminal + productionsSet[i].ToString().Substring(2);
+                         changeFirstTwoIntoOne((Word)productionsSet[i], newNonTerminal);
                      }
-                 }//for
+                 }//if
             }//while
         }
+
+        #endregion
+
+        #region Pomocnicze
 
         private bool isInChomskyForm()
         {
@@ -180,81 +262,129 @@ namespace Linquistics
 
             while (en.MoveNext())
             {
+                //List of Words
                 ArrayList productionsSet = (ArrayList)en.Value;
                 for (int i = 0; i < productionsSet.Count; i++)
                 {
-                    //jeœli w stringu s¹ zarówno du¿e jak i ma³e litery 
-                    //lub d³ugoœæ stringa wiêksza ni¿ 2 lub równa 0 to nie jest chomsky
-                    if (productionsSet[i] == null || productionsSet[i].ToString().CompareTo("") == 0)
+                    //lub d³ugoœæ s³owa wiêksza ni¿ 2 lub równa 0 to nie jest Chomsky
+                    if (productionsSet[i] == null || ((Word)productionsSet[i]).word.Count == 0 || ((Word)productionsSet[i]).word.Count > 2)
                         return false;
 
-                    else if (productionsSet[i].ToString().Length > 2)
+                    //jeœli jest d³ugosci 2 i ma terminale
+                    if(((Word)productionsSet[i]).word.Count == 2 && hasTerminal(((Word)productionsSet[i])) )
                         return false;
 
-                    else if (productionsSet[i].ToString().Length == 2 && hasSmallLetter(productionsSet[i].ToString()))
+                    //jeœli jest d³ugoœci 1 i nie ma nieterminala
+                    if (((Word)productionsSet[i]).word.Count == 1 && !hasTerminal(((Word)productionsSet[i])))
                         return false;
 
-                    else if (productionsSet[i].ToString().Length == 1 && !hasSmallLetter(productionsSet[i].ToString()))
-                        return false;
                 }//for
             }//while
 
             return true;
         }
 
-
-        #region Pomocnicze
-
-        private bool hasSmallLetter(string parWord)
+        private bool hasTerminal(Word parWord)
         {
-            string pomWord = parWord.ToUpper();
+            ArrayList pom = parWord.word;
 
-            if (pomWord.CompareTo(parWord) != 0)
-                return true;
-
+            for (int i = 0; i < pom.Count; i++)
+            {
+                for (int j = 0; j < terminals.Count; j++)
+                {
+                    if (pom[i].ToString().CompareTo(terminals[j].ToString()) == 0)
+                    {
+                        return true;
+                    }
+                }
+            }
             return false;
         }
 
-        private bool isSmallLetter(char c)
+        private bool isTerminal(string parSymbol)
         {
-            if (c.ToString().ToUpper().CompareTo(c.ToString()) != 0 ) return true;
+            for (int i = 0; i < terminals.Count; i++)
+            {
+                if (parSymbol.CompareTo(terminals[i].ToString()) == 0)
+                {
+                    return true;
+                }
+            }
             return false;
         }
 
-        private int lastNonTermIndex = 0;
+        private void removeRepetitions(ArrayList parSymbols)
+        {
+            int num = parSymbols.Count;
+
+            for (int i = 0; i < num; i++)
+            {
+                string pom = parSymbols[i].ToString();
+                for (int j = i + 1; j < num; j++)
+                {
+                    if (pom.CompareTo(parSymbols[j]) == 0)
+                    {
+                        parSymbols.RemoveAt(j);
+                        num--;
+                    }
+                }
+            }
+        }
+
+
+        private int lastNonTermIndex = 1;
         private string generateNewCNonTerminal()
         {
             string newNonTerminal = "C" + lastNonTermIndex.ToString();
             lastNonTermIndex++;
             return newNonTerminal;
+
         }
 
-        private void changeSymbolsAndAddProductions(string toTransformWord, ArrayList toTransformSymbols)///!!!!!
+
+        private Hashtable addCProductions(ArrayList parTerminals)
         {
-            for (int i = 0; i < toTransformSymbols.Count; i++)
+            Hashtable newProductionsRev = new Hashtable();
+
+            for (int i = 0; i < parTerminals.Count; i++)
             {
-                string[] tab = toTransformWord.Split((char)toTransformSymbols[i]);
                 string newNonTerm = generateNewCNonTerminal();
+                productions.Add(newNonTerm, parTerminals[i]);
 
-                toTransformWord = "";
-                for (int k = 0; k < tab.Length; k++)
-                {
-                    toTransformWord += tab[k];
-                    if (k < tab.Length - 1) toTransformWord += newNonTerm;
-                }
+                newProductionsRev.Add(parTerminals[i], newNonTerm);
+                nonTerminals.Add(newNonTerm);
+            }
+            return newProductionsRev;
+        }
 
-                //dodaj produkcjê
-                if (tab.Length > 1)//tzn jeszcze nie wymieniony ten terminal to dodaj produkcjê
+
+        private void changeTerminalsToNonterminals(Word parWord, Hashtable changes)
+        {
+            //terminale s¹ inne od nieterminali wiec mogê przeszukiwaæ ca³oœæ
+            for (int i = 0; i < parWord.word.Count; i++)
+            {
+                //kluczem changes s¹ terminale do wymiany, a wynikiem nowy nieterminal
+                if (changes[parWord.word[i].ToString()] != null)
                 {
-                    ArrayList ar = new ArrayList();
-                    ar.Add(toTransformSymbols[i].ToString());
-                    productions.Add(newNonTerm, ar);
+                    parWord.word[i] = changes[parWord.word[i].ToString()];
                 }
             }
+        }
+
+
+        private void changeFirstTwoIntoOne(Word parWord, string parSymbol)
+        {
+            parWord.word.RemoveAt(0);
+            //teraz drugi jest pierwszy
+            parWord.word[0] = parSymbol;
         }
 
 
         #endregion
 
     }
+   
+
+
+
 }

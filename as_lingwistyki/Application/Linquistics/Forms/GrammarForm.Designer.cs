@@ -30,8 +30,8 @@ namespace Linquistics
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GrammarForm));
             this.grammarDefPanel = new System.Windows.Forms.Panel();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.emptyWordSymbolTextBox = new System.Windows.Forms.TextBox();
+            this.hasEmptyWord = new System.Windows.Forms.CheckBox();
             this.editBtn = new System.Windows.Forms.Button();
             this.commitBtn = new System.Windows.Forms.Button();
             this.productionsNumTextBox = new System.Windows.Forms.TextBox();
@@ -174,8 +174,8 @@ namespace Linquistics
             // grammarDefPanel
             // 
             this.grammarDefPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.grammarDefPanel.Controls.Add(this.textBox14);
-            this.grammarDefPanel.Controls.Add(this.checkBox1);
+            this.grammarDefPanel.Controls.Add(this.emptyWordSymbolTextBox);
+            this.grammarDefPanel.Controls.Add(this.hasEmptyWord);
             this.grammarDefPanel.Controls.Add(this.editBtn);
             this.grammarDefPanel.Controls.Add(this.commitBtn);
             this.grammarDefPanel.Controls.Add(this.productionsNumTextBox);
@@ -197,26 +197,26 @@ namespace Linquistics
             this.grammarDefPanel.Size = new System.Drawing.Size(200, 429);
             this.grammarDefPanel.TabIndex = 0;
             // 
-            // textBox14
+            // emptyWordSymbolTextBox
             // 
-            this.textBox14.Location = new System.Drawing.Point(136, 200);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(58, 20);
-            this.textBox14.TabIndex = 1;
-            this.textBox14.Text = "e";
+            this.emptyWordSymbolTextBox.Location = new System.Drawing.Point(136, 200);
+            this.emptyWordSymbolTextBox.Name = "emptyWordSymbolTextBox";
+            this.emptyWordSymbolTextBox.Size = new System.Drawing.Size(58, 20);
+            this.emptyWordSymbolTextBox.TabIndex = 1;
+            this.emptyWordSymbolTextBox.Text = "e";
             // 
-            // checkBox1
+            // hasEmptyWord
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(0, 203);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox1.Size = new System.Drawing.Size(125, 17);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Zawiera s³owo puste";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.hasEmptyWord.AutoSize = true;
+            this.hasEmptyWord.Checked = true;
+            this.hasEmptyWord.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.hasEmptyWord.Location = new System.Drawing.Point(0, 203);
+            this.hasEmptyWord.Name = "hasEmptyWord";
+            this.hasEmptyWord.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.hasEmptyWord.Size = new System.Drawing.Size(125, 17);
+            this.hasEmptyWord.TabIndex = 1;
+            this.hasEmptyWord.Text = "Zawiera s³owo puste";
+            this.hasEmptyWord.UseVisualStyleBackColor = true;
             // 
             // editBtn
             // 
@@ -1338,8 +1338,6 @@ namespace Linquistics
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label9;
@@ -1347,5 +1345,7 @@ namespace Linquistics
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.CheckBox hasEmptyWord;
+        public System.Windows.Forms.TextBox emptyWordSymbolTextBox;
     }
 }
